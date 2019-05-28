@@ -22,5 +22,16 @@ namespace _200389459_comp2084_lesson3.Controllers
             return View(carList);
             // return Content("/Cars - This is a list of cars from Content()");
         }
+
+        public ActionResult Details(int? id)    
+        {
+            if (id == null || id > carList.Count)
+            {
+                return Content("Invalid car id");
+            }
+            var ind = Convert.ToInt32(id) - 1;
+            var car = carList[ind];
+            return View(car);
+        }
     }
 }
